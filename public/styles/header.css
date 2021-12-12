@@ -1,0 +1,16 @@
+header {
+  background: url("https://www.transparenttextures.com/patterns/elastoplast.png"), #e7c21c;
+  height: 400px;
+}
+
+#profile {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 480px;
+  padding-top: 5.5em;
+}
+
+#name {
+  padding-bottom: 20px;
+}
