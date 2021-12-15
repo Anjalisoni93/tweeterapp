@@ -26,6 +26,7 @@
 
 .submit-tweet {
   width: 100%;
+  padding-top: 20px;
 }
 
 #tweet-text {
@@ -40,8 +41,89 @@
 }
 
 .submit-button {
-  background-color: royalblue;
+  background-color: #3e54a2;
   color: white;
   font-family: bungee;
   border: none;
+}
+
+.tweet-container {
+  display: flex;
+  flex-direction: column;
+  background: none;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.tweet {
+  width: 100%;
+  border: 2px solid;
+}
+
+.tweet:hover {
+  border: 2px solid;
+  padding: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.tweet header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tweet footer {
+  border-top: 2px solid grey;
+  margin-bottom: 10px;
+}
+
+.tweet div {
+  padding-left: 25px;
+  padding-top: 10px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.usericon {
+  margin: 5px;
+}
+
+.uname {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.atuser {
+  float: right;
+  padding-right: 10px;
+  opacity: 0.7;
+  color: #c9cee6;
+  font-weight: bold;
+}
+
+.footercontent {
+  padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 5px;
+  font-size: medium;
+  font-weight: bold;
+}
+
+.fa-flag,
+.fa-retweet,
+.fa-heart {
+    color: #3e54a2;
+}
+
+.fa-retweet:hover,
+.fa-heart:hover,
+.fa-flag:hover {
+    color: #ca9827;
+}
+
+.icons {
+  float: right;
 }
