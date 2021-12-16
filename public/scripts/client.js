@@ -4,47 +4,42 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
 
   $(".submit-tweet").submit(function(event) {
     event.preventDefault();
-    loadTweets();
+    let formData = $(this).serialize();
+    //console.log("something happens here", formData);
+    let tweetArea = $('#tweet-area').val();
+    //console.log("Checking text", tweetArea);
+
+    if (tweetArea === '') {
+      return alert('Please enter a text');
+    } else if (tweetArea.length > 140) {
+      return alert('Tweet is too long!');
+    } else if (tweetArea.match(/^ *$/) !== null) {
+      return alert('Please dont leave too much space');
+    } else {
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: formData
+      }).done(function() {
+        $('#text-area').val('');
+        $('.counter').html(140);
+        $(".submit-tweet").trigger("reset")
+        loadTweets();
+        console.log("Ajax request loaded successfully!");
+      })
+    }
   });
 
   function loadTweets() {
     $.ajax({
       url: "/tweets",
-      method: "POST",
-      data: {
-        text: "anjalisoni",
-        user:"Anjali Soni"
-      },
+      method: "GET",
       dataType: "json",
       success: function(data) {
+        console.log("Data loaded succesfully!", data);
         renderTweets(data);
       }
     });
@@ -53,13 +48,19 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
-      $('.tweet-container').append($tweet);
+      $('.tweet-container').prepend($tweet); // prepend means on top
     }
+  };
+
+  // to prevent XSS with escaping
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
   };
 
   const createTweetElement  = function(tweet) {
     const $tweet = $(`
-    <section class="tweet-container">
           <article class="tweet">
             <header>
             <div class="profile">
@@ -69,7 +70,7 @@ $(document).ready(function() {
               <span class="atuser">${tweet.user.handle}</span>
             </header>
             <div>
-              <h4>${tweet.content.text}</h4>
+              <h4>${escape(tweet.content.text)}</h4>
             </div>
             <footer class="footercontent">
               ${timeago.format(tweet.created_at)}
@@ -80,11 +81,8 @@ $(document).ready(function() {
                 </span>
             </footer>
           </article>
-        </section>
     `);
     return $tweet;
-  };
-  renderTweets(data);
-  
+  };  
 });
 
