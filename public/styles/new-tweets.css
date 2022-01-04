@@ -13,6 +13,15 @@
   flex-direction: column;
 }
 
+#error {
+  border: 3px solid red;
+  width: 100%;
+  text-align: center;
+  color: red;
+  padding: 5px;
+  font-weight: bold;
+}
+
 .title {
   font-weight: bold;
   color: grey;
