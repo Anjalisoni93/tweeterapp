@@ -4,7 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-
+$('#error').hide();
+loadTweets();
   $(".submit-tweet").submit(function(event) {
     event.preventDefault();
     let formData = $(this).serialize();
@@ -13,11 +14,15 @@ $(document).ready(function() {
     //console.log("Checking text", tweetArea);
 
     if (tweetArea === '') {
-      return alert('Please enter a text');
+      // Adding error message using jQuery
+      $('#error').slideDown();
+      $('#error').html('<i class="fas fa-exclamation-triangle"></i>  Please enter a text first!  <i class="fas fa-exclamation-triangle"></i>');
     } else if (tweetArea.length > 140) {
-      return alert('Tweet is too long!');
+      $('#error').slideDown();
+      $('#error').html('<i class="fas fa-exclamation-triangle"></i> This message is way too long! <i class="fas fa-exclamation-triangle"></i>');
     } else if (tweetArea.match(/^ *$/) !== null) {
-      return alert('Please dont leave too much space');
+      $('#error').slideDown();
+      $('#error').html('<i class="fas fa-exclamation-triangle"></i> Please dont leave too much space! <i class="fas fa-exclamation-triangle"></i>');
     } else {
       $.ajax({
         url: '/tweets',
