@@ -1,8 +1,9 @@
 .container {
-  
   background: none;
   text-align: left;
   margin-top: 10px;
+  width: 65%;
+  padding-left: 130px;
 }
 
 .new-tweet {
@@ -132,6 +133,8 @@
   font-weight: bold;
 }
 
+
+
 .fa-flag,
 .fa-retweet,
 .fa-heart {
@@ -146,4 +149,15 @@
 
 .icons {
   float: right;
+}
+
+.icons i {
+  padding-right: 10px;
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    width: 90%;
+    padding-left: 10px;
+  }
 }
