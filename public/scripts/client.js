@@ -9,9 +9,7 @@ loadTweets();
   $(".submit-tweet").submit(function(event) {
     event.preventDefault();
     let formData = $(this).serialize();
-    //console.log("something happens here", formData);
     let tweetArea = $('#tweet-area').val();
-    //console.log("Checking text", tweetArea);
 
     if (tweetArea === '') {
       // Adding error message using jQuery
@@ -31,7 +29,8 @@ loadTweets();
       }).done(function() {
         $('#text-area').val('');
         $('.counter').html(140);
-        $(".submit-tweet").trigger("reset")
+        $('#error').slideUp();
+        $(".submit-tweet").trigger("reset");
         loadTweets();
         console.log("Ajax request loaded successfully!");
       })
