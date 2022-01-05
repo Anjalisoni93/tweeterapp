@@ -32,4 +32,19 @@ body {
    background-color: #ffffff;
  }
 
- 
+.display-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 205px; 
+
+}
+
+@media screen and (max-width: 1024px) {
+  .display-flex {
+    display: block;
+    margin-top: 120px;
+  }
+  #profile {
+    margin: 0px;
+  }
+}
