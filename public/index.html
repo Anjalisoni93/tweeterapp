@@ -40,25 +40,29 @@
         </button>
       </div>
     </nav>
+    <div class="display-flex">
+          <!-- Page-specific (main) content here -->
       <header id="profile">
-            <img src="/images/profile-hex.png"> 
-            <h2>Anjali Soni</h2>
+        <img src="/images/profile-hex.png"> 
+        <h2>Anjali Soni</h2>
       </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <div id="error"></div>
-        <form class="submit-tweet" action="/tweets" method="POST">
-          <label for="tweet-text" class="title">What are you humming about?</label>
-          <textarea name="text" id="tweet-area"></textarea>
-          <div>
-            <button type="submit" class="submit-button">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <section class="tweet-container">
-      </section>
-    </main>
+      <main class="container">
+        <section class="new-tweet">
+          <div id="error"></div>
+          <form class="submit-tweet" action="/tweets" method="POST">
+            <label for="tweet-text" class="title">What are you humming about?</label>
+            <textarea name="text" id="tweet-area"></textarea>
+            <div>
+              <button type="submit" class="submit-button">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <section class="tweet-container">
+        </section>
+      </main>
+    </div>
+      
+    
   </body>
 </html>
