@@ -11,6 +11,7 @@ nav {
   position: fixed;
   padding-top: 1em;
   font-size: 40px;
+  /* margin-bottom: 80px; */
 }
 
 .logo {
@@ -26,11 +27,13 @@ nav {
   align-items: center;
   font-size: 20px;
 }
+
 .new-tweet-link {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   cursor: pointer;
   color: #FFF;
+  position: relative;
 }
 
 .new-tweet-link p {
@@ -43,8 +46,34 @@ nav {
 #angle-arrow {
   color: crimson;
   align-items: center;
+  position: absolute;
+  animation: jumpInfinite 1.5s infinite;
 }
 
 #angle-arrow:hover {
   color: white;
+}
+
+/* Animation for angle down arrow */
+@keyframes jumpInfinite {
+  0% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 10px;
+  }
+  100% {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    background: url("https://www.transparenttextures.com/patterns/elastoplast.png"), #e7c21c;
+    position: absolute;
+    position: fixed;
+  }
+  .navbar {
+    align-items: flex-start;
+  }
 }
