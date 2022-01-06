@@ -84,7 +84,7 @@
 .tweet:hover {
   border: 2px solid;
   padding: 10px;
-  box-shadow: 5px 10px #888888;
+  box-shadow: 10px 10px 5px #c5cae6;
 }
 
 .tweet header {
@@ -102,6 +102,8 @@
   padding-left: 25px;
   padding-top: 10px;
 }
+
+/* Profile styling for avatars */
 
 .profile {
   display: flex;
@@ -125,6 +127,7 @@
   font-weight: bold;
 }
 
+/* Footer of tweet article */
 .footercontent {
   padding-top: 10px;
   padding-left: 15px;
@@ -133,8 +136,7 @@
   font-weight: bold;
 }
 
-
-
+/* Icons styling */
 .fa-flag,
 .fa-retweet,
 .fa-heart {
@@ -155,6 +157,8 @@
   padding-right: 10px;
 }
 
+
+/* Media query */
 @media screen and (max-width: 1024px) {
   .container {
     width: 90%;
