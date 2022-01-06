@@ -67,6 +67,7 @@ nav {
   }
 }
 
+/* Media query to for desktop and tablet */
 @media only screen and (max-width: 1024px) {
   nav {
     background: url("https://www.transparenttextures.com/patterns/elastoplast.png"), #e7c21c;
