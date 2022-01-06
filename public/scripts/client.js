@@ -1,18 +1,17 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
 $(document).ready(function() {
-$('#error').hide();
-loadTweets();
+  // Hiding the error rmessage
+  $('#error').hide();
+
+  loadTweets();
+
+  // Tweet Submission
   $(".submit-tweet").submit(function(event) {
     event.preventDefault();
     let formData = $(this).serialize();
     let tweetArea = $('#tweet-area').val();
 
+    // Adding error message using jQuery
     if (tweetArea === '') {
-      // Adding error message using jQuery
       $('#error').slideDown();
       $('#error').html('<i class="fas fa-exclamation-triangle"></i>  Please enter a text first!  <i class="fas fa-exclamation-triangle"></i>');
     } else if (tweetArea.length > 140) {
@@ -33,10 +32,11 @@ loadTweets();
         $(".submit-tweet").trigger("reset");
         loadTweets();
         console.log("Ajax request loaded successfully!");
-      })
+      });
     }
   });
 
+  // Form submission
   function loadTweets() {
     $.ajax({
       url: "/tweets",
@@ -49,6 +49,7 @@ loadTweets();
     });
   }
 
+  // Rendering tweets
   const renderTweets = function(tweets) {
     for (let tweet of tweets) {
       let $tweet = createTweetElement(tweet);
@@ -56,13 +57,15 @@ loadTweets();
     }
   };
 
-  // to prevent XSS with escaping
-  const escape = function (str) {
+  // To prevent XSS with escaping
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+
+  // Tweet Article
   const createTweetElement  = function(tweet) {
     const $tweet = $(`
           <article class="tweet">
@@ -87,6 +90,6 @@ loadTweets();
           </article>
     `);
     return $tweet;
-  };  
+  };
 });
 
