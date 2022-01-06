@@ -21,10 +21,6 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
  main {
    width: 90%;
    text-align: center;
@@ -32,6 +28,7 @@ body {
    background-color: #ffffff;
  }
 
+ /* Main div that containes profile and container */
 .display-flex {
   display: flex;
   justify-content: space-between;
@@ -39,6 +36,7 @@ body {
 
 }
 
+/* Desktop and tablet friendly design */
 @media screen and (max-width: 1024px) {
   .display-flex {
     display: block;
