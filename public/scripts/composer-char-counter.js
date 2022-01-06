@@ -1,3 +1,4 @@
+// Word counter
 $(document).ready(function() {
   $('textarea').on('input', function() {
     let lengthOfWords = $(this).val().length;
@@ -5,6 +6,8 @@ $(document).ready(function() {
     updateCountdown($counter, lengthOfWords);
   });
 });
+
+// Update words per count
 function updateCountdown($counter, len) {
   let charsLeft = 140 - len;
   $counter.text(charsLeft);
